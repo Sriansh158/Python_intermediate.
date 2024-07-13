@@ -1,0 +1,17 @@
+fname = input("Enter file name: ")
+fh = open(fname)
+
+count = 0
+value = 0
+
+for line in fh:
+    if line.startswith("X-DSPAM-Confidence:"):
+        start_index = line.find(":") + 1
+        
+        float_value =float(line[start_index :]) 
+        value = value + float_value
+        count = count + 1
+        
+        
+print("Average spam confidence:",value/count)
+     
